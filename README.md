@@ -13,9 +13,9 @@ Sales Trends and Performance:
 Pricing Analysis:
 - Is there a correlation between product price and sales volume?
 - How does price impact the review scores and review counts?
-- Customer Feedback and Product Quality:
-
-Which products have the highest and lowest review scores?
+  
+Customer Feedback and Product Quality:
+- Which products have the highest and lowest review scores?
 - Is there a relationship between the number of reviews and the review score?
 - How do review scores impact sales?
 

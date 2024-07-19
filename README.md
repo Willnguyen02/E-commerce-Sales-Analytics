@@ -3,9 +3,8 @@
 Dataset: https://www.kaggle.com/datasets/fahmidachowdhury/e-commerce-sales-analysis
 
 Questions:
-Sales Trends and Performance:
 
-What are the monthly sales trends for each product?
+Sales Trends and Performance:
 - Which product categories have the highest and lowest sales over the past year?
 - What are the top-selling products each month?
 - How do sales vary seasonally or during specific months?
@@ -13,9 +12,9 @@ What are the monthly sales trends for each product?
 Pricing Analysis:
 - Is there a correlation between product price and sales volume?
 - How does price impact the review scores and review counts?
-- Customer Feedback and Product Quality:
-
-Which products have the highest and lowest review scores?
+  
+Customer Feedback and Product Quality:
+- Which products have the highest and lowest review scores?
 - Is there a relationship between the number of reviews and the review score?
 - How do review scores impact sales?
 

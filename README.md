@@ -5,7 +5,6 @@ Dataset: https://www.kaggle.com/datasets/fahmidachowdhury/e-commerce-sales-analy
 Questions:
 
 Sales Trends and Performance:
-- What are the monthly sales trends for each product?
 - Which product categories have the highest and lowest sales over the past year?
 - What are the top-selling products each month?
 - How do sales vary seasonally or during specific months?

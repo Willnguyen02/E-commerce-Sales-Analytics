@@ -5,7 +5,6 @@ Dataset: https://www.kaggle.com/datasets/fahmidachowdhury/e-commerce-sales-analy
 Questions:
 
 Sales Trends and Performance:
-- Which product categories have the highest and lowest sales over the past year?
 - What are the top-selling products each month?
 - How do sales vary seasonally or during specific months?
 
@@ -19,7 +18,7 @@ Customer Feedback and Product Quality:
 - How do review scores impact sales?
 
 Category Performance:
-- Which categories generate the most revenue?
+- Which product categories have the highest and lowest sales over the past year?
 - Are there specific categories that perform better during certain months?
 
 Product Lifecycle:

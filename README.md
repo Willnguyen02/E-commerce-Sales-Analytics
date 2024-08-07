@@ -1,7 +1,7 @@
 # E-Commerce-Sales-Data-Analysis
 
 Objective and Goals:
-- Leverage AI to formulate pertinent business questions
+- Leverage AI to formulate relevant business questions based on a dataset
 - Conduct thorough data analysis using Python and relevant libraries such as pandas, matplotlib, and seaborn
 - Provide potential explanations for data patterns
 - Provide actionable recommendations based on the analysis

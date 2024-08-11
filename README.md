@@ -10,6 +10,6 @@ Dataset: https://www.kaggle.com/datasets/fahmidachowdhury/e-commerce-sales-analy
 
 Sources:
 - ChatGPT (for question generation)
-- "Python Crash COurse: A Hands-on, Project-based Introdution to Programming" by Eric Matthes
+- "Python Crash Course: A Hands-on, Project-based Introdution to Programming" by Eric Matthes
 - "Fluent Python" by Luciano Ramalho
 - "E-Commerce Sales Analysis" by fahmidachowdhury (Kaggle Dataset)

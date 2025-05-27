@@ -52,7 +52,7 @@ Objective:
 */
 
 
--- Product with the highest total sales accross all 12 months: Product_224 with a total sale of 9,151
+-- Product with the highest total sales accross all 12 months
 SELECT 
 	product_name AS best_selling_product,
     (
@@ -138,33 +138,62 @@ ORDER BY revenue DESC;
 -- Compute the average monthly sales for each product (sorted from highest to lowest)
 SELECT
 	product_name,
-    (
-		COALESCE(AVG(sales_month_1), 0) +
-        COALESCE(AVG(sales_month_2), 0) +
-        COALESCE(AVG(sales_month_3), 0) +
-        COALESCE(AVG(sales_month_4), 0) +
-        COALESCE(AVG(sales_month_5), 0) +
-        COALESCE(AVG(sales_month_6), 0) +
-        COALESCE(AVG(sales_month_7), 0) +
-        COALESCE(AVG(sales_month_8), 0) +
-        COALESCE(AVG(sales_month_9), 0) +
-        COALESCE(AVG(sales_month_10), 0) +
-        COALESCE(AVG(sales_month_11), 0) +
-        COALESCE(AVG(sales_month_12), 0)
-	) AS total_avg_sales
+    ROUND((
+		COALESCE(sales_month_1, 0) +
+        COALESCE(sales_month_2, 0) +
+        COALESCE(sales_month_3, 0) +
+        COALESCE(sales_month_4, 0) +
+        COALESCE(sales_month_5, 0) +
+        COALESCE(sales_month_6, 0) +
+        COALESCE(sales_month_7, 0) +
+        COALESCE(sales_month_8, 0) +
+        COALESCE(sales_month_9, 0) +
+        COALESCE(sales_month_10, 0) +
+        COALESCE(sales_month_11, 0) +
+        COALESCE(sales_month_12, 0) 
+	) / 12, 2) AS avg_monthly_sales
 FROM sales
-GROUP BY product_name
-ORDER BY total_avg_sales DESC;
+ORDER BY avg_monthly_sales DESC;
     
 
-SELECT * FROM sales;
+-- Total annual sales by category
+SELECT 
+	category,
+    SUM((
+		COALESCE(sales_month_1, 0) +
+        COALESCE(sales_month_2, 0) +
+        COALESCE(sales_month_3, 0) +
+        COALESCE(sales_month_4, 0) +
+        COALESCE(sales_month_5, 0) +
+        COALESCE(sales_month_6, 0) +
+        COALESCE(sales_month_7, 0) +
+        COALESCE(sales_month_8, 0) +
+        COALESCE(sales_month_9, 0) +
+        COALESCE(sales_month_10, 0) +
+        COALESCE(sales_month_11, 0) +
+        COALESCE(sales_month_12, 0) 
+	)) AS total_monthly_sales
+FROM sales
+GROUP BY category;
+
+
 -- Total monthly sales by category
-
-
-
--- [ISSUE] Query 1 and 4 is showing the same output 
--- Product with the highest total sales accross all 12 months: Product_224 with a total sale of 9,151
--- Compute the average monthly sales for each product (sorted from highest to lowest)
+SELECT 
+	category,
+    SUM(sales_month_1) AS total_sales_month_1,
+    SUM(sales_month_2) AS total_sales_month_2,
+    SUM(sales_month_3) AS total_sales_month_3,
+    SUM(sales_month_4) AS total_sales_month_4,
+    SUM(sales_month_5) AS total_sales_month_5,
+    SUM(sales_month_6) AS total_sales_month_6,
+    SUM(sales_month_7) AS total_sales_month_7,
+    SUM(sales_month_8) AS total_sales_month_8,
+    SUM(sales_month_9) AS total_sales_month_9,
+    SUM(sales_month_10) AS total_sales_month_10,
+    SUM(sales_month_11) AS total_sales_month_11,
+    SUM(sales_month_12) AS total_sales_month_12
+FROM sales
+GROUP BY category;
 
 
 
@@ -175,11 +204,53 @@ Product Performance & Reviews
 
 Objective:
     - Identify the product with the highest average review score
-    - Analyze the correlation between reveiw score and total sales
-    - Determine which products have a reveiw score of below 3.0 but still exhibit high sales
+    - Analyze how total annual sales vary across products based on their associated customer review scores
+    - Determine which
+    - Determine which products have a review score of below 3.0 but still exhibit high sales
     - Calculate the average reveiw count for each product category
     - Identify the product with the highest review count but lowest sales
 */
+
+
+-- Higest average review score product
+SELECT
+	product_name,
+    AVG(review_score) AS average_review_score
+FROM sales
+GROUP BY product_name
+ORDER BY average_review_score DESC;
+
+
+-- Analyze how total annual sales vary across products based on their associated customer review scores
+SELECT 
+	product_name,
+    review_score,
+    SUM((
+		COALESCE(sales_month_1, 0) +
+        COALESCE(sales_month_2, 0) +
+        COALESCE(sales_month_3, 0) +
+        COALESCE(sales_month_4, 0) +
+        COALESCE(sales_month_5, 0) +
+        COALESCE(sales_month_6, 0) +
+        COALESCE(sales_month_7, 0) +
+        COALESCE(sales_month_8, 0) +
+        COALESCE(sales_month_9, 0) +
+        COALESCE(sales_month_10, 0) +
+        COALESCE(sales_month_11, 0) +
+        COALESCE(sales_month_12, 0) 
+	)) AS total_sales
+FROM sales
+GROUP BY product_name, review_score
+ORDER BY total_sales DESC;
+    
+
+SELECT * FROM sales;
+-- Determine which products have a review score of below 3.0 but still exhibit high sales
+
+-- [issue]: determine what "high sales" mean. Idea: top 25%
+
+
+
 
 
 /*
